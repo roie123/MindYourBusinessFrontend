@@ -1,0 +1,50 @@
+<table class="table align-middle mb-0 bg-white">
+    <thead  class="bg-light">
+      <tr>
+        <th>FULL NAME</th>
+        <th>PHONE NUMBER</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+         <td>
+            <div class="ms-3">
+                <p class="fw-bold mb-1">{{client.firstName}} {{client.lastName}}</p>
+                <p class="text-muted mb-0"></p>
+              </div>
+          <div class="d-flex align-items-center">
+            <img
+                src="https://icon-library.com/images/generic-profile-icon/generic-profile-icon-6.jpg"
+                alt=""
+                style="width: 45px; height: 45px"
+                class="rounded-circle"
+                />
+            
+          </div>
+        </td>
+        <td>
+          <p class="fw-normal mb-1">{{client.phoneNumber}}</p>
+          <p class="text-muted mb-0"></p>
+        </td>
+        <td  >
+         <h6 *ngFor="let service of client.procedureSet"> - {{service.name}}</h6>   
+        </td>
+
+        <td></td>
+        <td>
+          <button type="button" class="btn btn-link btn-sm btn-rounded">
+            Edit
+          </button>
+        </td>
+      </tr> 
+    
+      
+    </tbody>
+  </table>
+
+
+
+
+  <!--  class="badge badge-success rounded-pill d-inline" -->

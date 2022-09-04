@@ -5,6 +5,8 @@ export interface Employee{
     firstName:string,
     lastName: string,
     yearsOfExperience :number,
-    allowedProceduresToPerforme:AllowedProceduresToPerforme[]
+    allowedProceduresToPerform:AllowedProceduresToPerforme[],
+    email : string,
+    position : string;
 
 }

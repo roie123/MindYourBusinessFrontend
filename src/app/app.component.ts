@@ -17,48 +17,70 @@ export class AppComponent implements OnInit {
   private employees!:Employee[];
   private appointments!:Appointment[];
   private clients!:Client[];
+  public showEmployeeTable =false;
+  public showAppointmentTable =false;
+  public showClientTable=false;
 
   constructor(private employeeService:EmployeeService,private appointmentService:AppointmentService,private clientService:ClientService){};
 
   ngOnInit() {
-    this.getEmployees();
-    this.getAppointments();
-    this.getClients();
+    // this.getEmployees();
+    // this.getAppointments();
+    // this.getClients();
+  
     
   }
 
-  public getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(
-      (response: Employee[]) => {
-        this.employees = response;
-        console.log(this.employees);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
-  public getAppointments(): void {
-    this.appointmentService.getAppointments().subscribe(
-      (response: Appointment[]) => {
-        this.appointments = response;
-        console.log(this.appointments);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
+  // public getEmployees(): void {
+  //   this.employeeService.getEmployees().subscribe(
+  //     (response: Employee[]) => {
+  //       this.employees = response;
+  //       console.log(this.employees);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
+  // public getAppointments(): void {
+  //   this.appointmentService.getAppointments().subscribe(
+  //     (response: Appointment[]) => {
+  //       this.appointments = response;
+  //       console.log(this.appointments);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
+
+  // public getClients(): void {
+  //   this.clientService.getClients().subscribe(
+  //     (response: Client[]) => {
+  //       this.clients = response;
+  //       console.log(this.clients);
+  //     },
+  //     (error: HttpErrorResponse) => {
+  //       alert(error.message);
+  //     }
+  //   );
+  // }
+  public showEmployees():void{
+this.showEmployeeTable=!this.showEmployeeTable;
+this.showAppointmentTable=false;
+this.showClientTable=false;
   }
 
-  public getClients(): void {
-    this.clientService.getClients().subscribe(
-      (response: Client[]) => {
-        this.clients = response;
-        console.log(this.clients);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
+  public showAppointments():void{
+    this.showAppointmentTable=!this.showAppointmentTable;
+    this.showEmployeeTable=false;
+    this.showClientTable=false;
       }
-    );
-  }
+      public showClients():void{
+        this.showClientTable=!this.showClientTable;
+        this.showAppointmentTable=false;
+        this.showEmployeeTable=false;
+        
+          }
+  
 }
