@@ -20,67 +20,43 @@ export class AppComponent implements OnInit {
   public showEmployeeTable =false;
   public showAppointmentTable =false;
   public showClientTable=false;
+  public showServicesTable=false;
 
-  constructor(private employeeService:EmployeeService,private appointmentService:AppointmentService,private clientService:ClientService){};
+  constructor(){};
 
   ngOnInit() {
-    // this.getEmployees();
-    // this.getAppointments();
-    // this.getClients();
-  
+   
     
   }
 
-  // public getEmployees(): void {
-  //   this.employeeService.getEmployees().subscribe(
-  //     (response: Employee[]) => {
-  //       this.employees = response;
-  //       console.log(this.employees);
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
-  // public getAppointments(): void {
-  //   this.appointmentService.getAppointments().subscribe(
-  //     (response: Appointment[]) => {
-  //       this.appointments = response;
-  //       console.log(this.appointments);
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
-
-  // public getClients(): void {
-  //   this.clientService.getClients().subscribe(
-  //     (response: Client[]) => {
-  //       this.clients = response;
-  //       console.log(this.clients);
-  //     },
-  //     (error: HttpErrorResponse) => {
-  //       alert(error.message);
-  //     }
-  //   );
-  // }
   public showEmployees():void{
 this.showEmployeeTable=!this.showEmployeeTable;
 this.showAppointmentTable=false;
 this.showClientTable=false;
+this.showServicesTable=false;
+
   }
 
   public showAppointments():void{
     this.showAppointmentTable=!this.showAppointmentTable;
     this.showEmployeeTable=false;
     this.showClientTable=false;
+    this.showServicesTable=false;
+
       }
       public showClients():void{
         this.showClientTable=!this.showClientTable;
+        this.showServicesTable=false;
         this.showAppointmentTable=false;
         this.showEmployeeTable=false;
         
           }
+          public showServices():void{
+            this.showServicesTable=!this.showServicesTable;
+            this.showClientTable=false;
+            this.showAppointmentTable=false;
+            this.showEmployeeTable=false;
+            
+              }
   
 }

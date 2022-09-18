@@ -3,6 +3,7 @@ import { Employee } from '../MODELS/employee';
 import { EmployeeService } from '../SERVICES/employee.service';
 import { AllowedProcuduresToPerformService } from '../SERVICES/allowed-procudures-to-perform.service';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 @Component({
   selector: 'app-employee-table',
   templateUrl: './employee-table.component.html',
@@ -10,8 +11,10 @@ import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 })
 export class EmployeeTableComponent implements OnInit {
 public employees!:Employee[];
+public isShowingEmployeeForm=false;
 public allowedServices!:AllowedProcuduresToPerformService[];
-
+public isShowingEditForm = false;
+public employee!:Employee;
   constructor(private employeeService:EmployeeService) { }
 
   ngOnInit(): void {
@@ -28,10 +31,43 @@ public allowedServices!:AllowedProcuduresToPerformService[];
       }
     );
   }
+  public showEmployeeForm():void{
+    this.isShowingEditForm=false;
+    this.isShowingEmployeeForm=!this.isShowingEmployeeForm;
+  
 
-  public breakeArray(employee:Employee): AllowedProcuduresToPerformService[]{
-    this.allowedServices=employee.allowedProceduresToPerform;
-    return this.allowedServices;
-  }
+      }
+      public   onUpdateEmployee(editEmployee :NgForm, employeeId:number):void{
+        this.employee = editEmployee.value;
+        this.employee.id=employeeId;
+        console.log(this.employee);
+        this.employeeService.updateEmployee(this.employee).subscribe(
+            (response : Employee )=>{
+              console.log("EMPLOYEE EDITED")
+              this.isShowingEditForm=!this.isShowingEditForm;
+
+                this.ngOnInit();
+            },
+            (error :HttpErrorResponse)=>{
+              console.log(error.message)
+            }
+
+        )
+        
+      }
+
+      public showEditFormActivator():void{
+        this.isShowingEmployeeForm = false;
+        this.isShowingEditForm=!this.isShowingEditForm;
+      }
+
+      public removeEmployee(employeeid:number):void{
+        this.employeeService.deleteEmployee(employeeid).subscribe();
+        
+      }
+
+
+ 
+
 
 }

@@ -1,4 +1,12 @@
-<table class="table align-middle mb-0 bg-white">
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+<button (click)="showEmployeeForm()" style="margin: auto;" type="button" class="block" [style.background-color]="isShowingEmployeeForm ? '#A9A9A9' : '#343535'">ADD NEW EMPLOYEE </button>   
+<button (click)="showEditFormActivator()" style="margin: auto;" type="button" class="block" [style.background-color]="isShowingEditForm ? '#A9A9A9' : '#343535'">EDIT EMPLOYEES</button>   
+
+<table *ngIf="!isShowingEmployeeForm" class="table align-middle mb-0 bg-white">
     <thead  class="bg-light">
       <tr>
         <th>FULL NAME</th>
@@ -35,17 +43,36 @@
 
         <td>{{employee.position}}</td>
         <td>
-          <button type="button" class="btn btn-link btn-sm btn-rounded">
-            Edit
-          </button>
+          
+          <button type="button" (click)="removeEmployee(employee.id)" class="btn btn-link btn-sm btn-rounded">REMOVE</button>
+          
         </td>
+        <div  *ngIf="isShowingEditForm"  >
+          <form #editEmployee="ngForm"  (ngSubmit)="onUpdateEmployee(editEmployee,employee.id)">
+      
+            <input type="text" ngModel name="firstName"   placeholder={{employee.firstName}}><br> <br>
+          
+            <input type="text" ngModel name="lastName"   placeholder={{employee.lastName}}><br><br>
+          
+            
+            <input type="text"  ngModel name="email"  ngModel placeholder={{employee.email}}><br><br>
+          
+            <input type="number"  ngModel name="yearsOfExperience"   placeholder={{employee.yearsOfExperience}}><br><br>
+          
+            <input type="text" ngModel name="position"   placeholder={{employee.position}}><br><br>
+
+            <button type="submit"   for="submitButton" (click)="onUpdateEmployee(editEmployee,employee.id)">SAVE</button>
+          
+          </form>
+        </div>
       </tr> 
-    
+   
       
     </tbody>
   </table>
+  <div>
+    <app-employee-form *ngIf="isShowingEmployeeForm"></app-employee-form>
+  </div>
 
 
 
-
-  <!--  class="badge badge-success rounded-pill d-inline" -->

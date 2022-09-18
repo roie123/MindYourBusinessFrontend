@@ -1,0 +1,14 @@
+.submitButton{
+    size: 10cm;
+}
+.AddEmployeeForm{
+    padding: 100px;
+    text-align: left;
+    margin: auto;
+    display: table;
+}
+.inputShit{
+    text-align: center;
+    margin: auto;
+    display: table;
+}
