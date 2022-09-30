@@ -1,0 +1,29 @@
+
+<form #AddNewAppointment="ngForm" class="AddEmployeeForm"  (ngSubmit)="addNewAppointment(AddNewAppointment)">
+    <h1> ADD A NEW APPOINTMENT</h1>
+  
+    <input  type="text" class="inputShit" ngModel name="clientId"   placeholder="EMPLOYEE ID"> <br> <br>
+  
+    <input type="text" class="inputShit" ngModel name="employeeId"   placeholder="CLIENT ID"><br><br>
+  
+    
+    <input type="text" class="inputShit"  ngModel name="serviceId"  ngModel placeholder="SERVICE ID"><br><br>
+  
+      <button type="submit" class="inputShit" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="addNewAppointment(AddNewAppointment)">ADD NEW</button>
+   
+
+  
+  </form>
+
+
+
+  
+  <!--   id:number,
+    client:Client,
+    employee:Employee,
+    someService:AllowedProceduresToPerforme,
+    localDateTime: string
+} -->
+<!-- TODO
+   MAKE THE REQUEST OF A NEW APPOINTMENT TO BE BY NAMES OF THE EMPLOYEE AND THE CLIENT WITH A DROPDOWN OF THE SERVICES 
+ -->

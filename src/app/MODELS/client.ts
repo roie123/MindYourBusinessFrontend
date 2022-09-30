@@ -5,5 +5,6 @@ export interface Client{
     firstName:string,
     lastName :string,
     phoneNumber:string,
-    procedureSet:AllowedProceduresToPerforme[]
+    procedureSet:AllowedProceduresToPerforme[],
+    isActive:boolean
 }

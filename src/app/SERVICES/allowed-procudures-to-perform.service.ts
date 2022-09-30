@@ -15,4 +15,10 @@ export class AllowedProcuduresToPerformService {
     return this.Http.get<AllowedProceduresToPerforme[]>
     (`${this.servicesUrl}/all`);
   }
+  public updateService(allowedProcuduresToPerform:AllowedProceduresToPerforme):Observable<AllowedProceduresToPerforme>{
+    return this.Http.put<AllowedProceduresToPerforme>(`${this.servicesUrl}/update`,allowedProcuduresToPerform); 
+  }
+  
 }
+
+

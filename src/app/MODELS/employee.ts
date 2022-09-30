@@ -7,6 +7,7 @@ export interface Employee{
     yearsOfExperience :number,
     allowedProceduresToPerform:AllowedProceduresToPerforme[],
     email : string,
-    position : string;
+    position : string,
+    isActive:boolean;
 
 }

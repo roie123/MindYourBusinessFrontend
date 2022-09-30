@@ -9,6 +9,9 @@ import { ClientTableComponent } from './client-table/client-table.component';
 import { ServiceTableComponent } from './service-table/service-table.component';
 import { FormsModule } from '@angular/forms';
 import { EmployeeFormComponent } from './employee-table/employee-form/employee-form.component';
+import { RouterModule } from '@angular/router';
+import { ClientFormComponent } from './client-table/client-form/client-form.component';
+import { AppointmentFormComponent } from './appointment-table/appointment-form/appointment-form.component';
 
 
 @NgModule({
@@ -19,13 +22,16 @@ import { EmployeeFormComponent } from './employee-table/employee-form/employee-f
     ClientTableComponent,
     ServiceTableComponent,
     EmployeeFormComponent,
+    ClientFormComponent,
+    AppointmentFormComponent,
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule
     
   ],
   providers: [],

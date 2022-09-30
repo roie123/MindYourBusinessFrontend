@@ -1,14 +1,10 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 
 
 <button type="button" class="block">ADD NEW SERVICE</button>   
 <!--  IMPLEMENT U FUCKER  -->
 
-<table class="table align-middle mb-0 bg-white">
-    <thead  class="bg-light">
+<table class="table">
+    <thead  class="th">
       <tr>
         <th>SERVICE NAME</th>
         <th>DURATION</th>
@@ -19,24 +15,19 @@
     </thead>
     <tbody>
       <tr *ngFor="let service of services">
-         <td>
-            <div class="ms-3">
-                <p class="fw-bold mb-1">{{service.name}}</p>
-                <p class="text-muted mb-0"></p>
+         <td class="td">
+            <div >
+                <p >{{service.name}}</p>
+                <p ></p>
               </div>
-          <div class="d-flex align-items-center">
-            <!-- <img
-                src="https://icon-library.com/images/generic-profile-icon/generic-profile-icon-6.jpg"
-                alt=""
-                style="width: 45px; height: 45px"
-                class="rounded-circle"
-                /> -->
+          <div >
+          
             
           </div>
         </td>
         <td>
-          <p class="fw-normal mb-1">{{service.durationInMinutes}} MINUTES</p>
-          <p class="text-muted mb-0"></p>
+          <p >{{service.durationInMinutes}} MINUTES</p>
+          <p ></p>
         </td>
         <td  >
          <h6>{{service.price}}</h6>    
@@ -57,4 +48,3 @@
 
 
 
-  <!--  class="badge badge-success rounded-pill d-inline" -->

@@ -4,6 +4,7 @@ import { EmployeeService } from '../SERVICES/employee.service';
 import { AllowedProcuduresToPerformService } from '../SERVICES/allowed-procudures-to-perform.service';
 import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 import { NgForm } from '@angular/forms';
+import { AppComponent } from '../app.component';
 @Component({
   selector: 'app-employee-table',
   templateUrl: './employee-table.component.html',
@@ -18,10 +19,10 @@ public employee!:Employee;
   constructor(private employeeService:EmployeeService) { }
 
   ngOnInit(): void {
-    this.getEmployees();
+    this.getActiveEmployees();
   }
-  public getEmployees(): void {
-    this.employeeService.getEmployees().subscribe(
+  public getActiveEmployees(): void {
+    this.employeeService.getActiveEmployees().subscribe(
       (response: Employee[]) => {
         this.employees = response;
         console.log(this.employees);
@@ -45,8 +46,8 @@ public employee!:Employee;
             (response : Employee )=>{
               console.log("EMPLOYEE EDITED")
               this.isShowingEditForm=!this.isShowingEditForm;
-
-                this.ngOnInit();
+                
+                window.location.reload();
             },
             (error :HttpErrorResponse)=>{
               console.log(error.message)
@@ -61,11 +62,14 @@ public employee!:Employee;
         this.isShowingEditForm=!this.isShowingEditForm;
       }
 
-      public removeEmployee(employeeid:number):void{
-        this.employeeService.deleteEmployee(employeeid).subscribe();
+      public removeEmployee(employeeToBeRemoved:Employee):void{
+  
+        this.employeeService.removeEmployee(employeeToBeRemoved).subscribe();
+        console.log(employeeToBeRemoved,"EMPLOYEE REMOVED");
         
+        window.location.reload();
       }
-
+     
 
  
 

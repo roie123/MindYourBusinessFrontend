@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Employee } from 'src/app/MODELS/employee';
 import { EmployeeService } from 'src/app/SERVICES/employee.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-employee-form',
@@ -13,7 +15,7 @@ export class EmployeeFormComponent implements OnInit {
 public employee!:Employee;
 public isAbleToSubmit = true;
 
-  constructor(private employeeService:EmployeeService) { }
+  constructor(private employeeService:EmployeeService ,public router:Router) { }
 
   ngOnInit(): void {
   }
@@ -22,11 +24,11 @@ public isAbleToSubmit = true;
   public onSubmitEmployee(AddNewEmployee: NgForm): void{
     this.isAbleToSubmit=!this.isAbleToSubmit;
       this.employeeService.addEmployee(AddNewEmployee.value).subscribe(
-        (response : Employee)=>{console.log("EMPLOYEE ADDED")},
+        (response : Employee)=>{alert("EMPLOYEE ADDED"); window.location.reload()},
         (error:HttpErrorResponse)=>{alert(error.message)}
         
       ); 
   }
-
+  
 
 }

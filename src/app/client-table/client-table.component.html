@@ -1,26 +1,27 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
 
-<button type="button" class="block">ADD NEW CLIENT</button>   
-<!--  IMPLEMENT U FUCKER  -->
-<table class="table align-middle mb-0 bg-white">
-    <thead  class="bg-light">
+
+<div class="topnav a">
+<a (click)="showClientForm()"  [style.background-color]="isShowingClientForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD CLIENT</a>
+  <a (click)="showEditForm()" [style.background-color]="isShowingEditForm ? 'rgb(78, 78, 78)' : '#343535'">EDIT MODE</a>
+</div>
+<app-client-form *ngIf="isShowingClientForm"></app-client-form>
+<table class="table" >
+    <thead class="th" >
       <tr>
         <th>FULL NAME</th>
         <th>PHONE NUMBER</th>
-        <th></th>
-        <th></th>
+        <th>ID</th>
+        <th>ACTIONS</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let client of clients">
          <td>
-            <div class="ms-3">
-                <p class="fw-bold mb-1">{{client.firstName}} {{client.lastName}}</p>
-                <p class="text-muted mb-0"></p>
+            <div >
+                <p >{{client.firstName}} {{client.lastName}}</p>
+                <p ></p>
               </div>
-          <div class="d-flex align-items-center">
+          <div >
             <img
                 src="https://icon-library.com/images/generic-profile-icon/generic-profile-icon-6.jpg"
                 alt=""
@@ -31,19 +32,30 @@
           </div>
         </td>
         <td>
-          <p class="fw-normal mb-1">{{client.phoneNumber}}</p>
-          <p class="text-muted mb-0"></p>
+          <p >{{client.phoneNumber}}</p>
+          <p ></p>
         </td>
+        <td>{{client.id}}</td>
         <td  >
-         <h6 *ngFor="let service of client.procedureSet"> - {{service.name}}</h6>   
-        </td>
-
-        <td></td>
-        <td>
-          <button type="button" class="btn btn-link btn-sm btn-rounded">
-            Edit
+      
+          <button type="button" (click)="removeClient(client)" >
+            REMOVE
           </button>
         </td>
+         <div  *ngIf="isShowingEditForm"  >
+          <form #editClient="ngForm"  (ngSubmit)="onUpdateClient(editClient,client.id)">
+      
+            <input type="text" ngModel name="firstName"   placeholder={{client.firstName}}><br> <br>
+          
+            <input type="text" ngModel name="lastName"   placeholder={{client.lastName}}><br><br>
+          
+            
+            <input type="text"  ngModel name="phoneNumber"  ngModel placeholder={{client.phoneNumber}}><br><br>
+  
+            <button type="submit"   for="submitButton" (click)="onUpdateClient(editClient,client.id)">SAVE</button>
+          
+          </form>
+        </div>
       </tr> 
     
       
@@ -53,4 +65,3 @@
 
 
 
-  <!--  class="badge badge-success rounded-pill d-inline" -->

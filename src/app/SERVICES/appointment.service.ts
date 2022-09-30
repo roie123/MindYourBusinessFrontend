@@ -18,7 +18,20 @@ export class AppointmentService  {
   public addAppointment(appointment:Appointment):Observable<Appointment>{
     return this.Http.post<Appointment>(`${this.appointmentUrl}/add`,appointment);
   }
+
+  public updateAppointment(appointment:Appointment):Observable<Appointment>{
+    return this.Http.put<Appointment>(`${this.appointmentUrl}/update`,appointment); 
+}
+public deleteAppointment(appointmentId:number):Observable<void>{
+  return this.Http.delete<void>(`${this.appointmentUrl}/delete/${appointmentId}`)
+}
+public removeClient(appointment:Appointment):Observable<Appointment>{
+  return this.Http.put<Appointment>(`${this.appointmentUrl}/remove`,appointment); 
+}
+public addAppointmentById(clientId:number,employeeId:number,serviceId:number,appointment:Appointment):Observable<void>{
   
+  return this.Http.post<void>(`${this.appointmentUrl}/add/${clientId}/${employeeId}/${serviceId}`,appointment)
+}
  
 
 

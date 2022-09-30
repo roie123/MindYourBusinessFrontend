@@ -28,6 +28,17 @@ export class EmployeeService {
   public deleteEmployee(employeeId:number):Observable<void>{
     return this.Http.delete<void>(`${this.employeeUrl}/delete/${employeeId}`)
   }
+  public removeEmployee(employee:Employee):Observable<Employee>{
+    return this.Http.put<Employee>(`${this.employeeUrl}/remove`,employee); 
+  }
+  public getActiveEmployees():Observable<Employee[]>
+  {
+    return this.Http.get<Employee[]>(`${this.employeeUrl}/all/active`)
+  }
+  public getRemovedEmployees():Observable<Employee[]>
+  {
+    return this.Http.get<Employee[]>(`${this.employeeUrl}/all/removed`)
+  }
 
   
 }
