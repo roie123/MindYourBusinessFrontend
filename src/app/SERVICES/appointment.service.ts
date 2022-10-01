@@ -28,9 +28,9 @@ public deleteAppointment(appointmentId:number):Observable<void>{
 public removeClient(appointment:Appointment):Observable<Appointment>{
   return this.Http.put<Appointment>(`${this.appointmentUrl}/remove`,appointment); 
 }
-public addAppointmentById(clientId:number,employeeId:number,serviceId:number,appointment:Appointment):Observable<void>{
+public addAppointmentById(clientId:number,employeeId:number,serviceId:number,hour:number,minute:number,day:number,month:number,year:number, appointment:Appointment):Observable<void>{
   
-  return this.Http.post<void>(`${this.appointmentUrl}/add/${clientId}/${employeeId}/${serviceId}`,appointment)
+  return this.Http.post<void>(`${this.appointmentUrl}/add/${clientId}/${employeeId}/${serviceId}/${hour}/${minute}/${day}/${month}/${year}`,appointment)
 }
  
 

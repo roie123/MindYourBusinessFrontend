@@ -10,6 +10,7 @@ import { AllowedProcuduresToPerformService } from '../SERVICES/allowed-procudure
 })
 export class ServiceTableComponent implements OnInit {
   public services!:AllowedProceduresToPerforme[];
+  public isShowingForm=false;
   constructor(private serviceService:AllowedProcuduresToPerformService ) { }
  
   ngOnInit(): void {
@@ -27,6 +28,9 @@ export class ServiceTableComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+  public showFormToggle(){
+    this.isShowingForm=!this.isShowingForm;
   }
 
 }

@@ -1,8 +1,7 @@
 
 
-<button type="button" class="block">ADD NEW SERVICE</button>   
-<!--  IMPLEMENT U FUCKER  -->
-
+<a type="button" class="block" (click)="showFormToggle()">ADD NEW SERVICE</a>   
+<app-service-form *ngIf="isShowingForm"></app-service-form>
 <table class="table">
     <thead  class="th">
       <tr>

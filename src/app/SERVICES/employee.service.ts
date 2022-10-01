@@ -9,14 +9,18 @@ import { Employee } from '../MODELS/employee';
 })
 export class EmployeeService {
   private employeeUrl='http://localhost:8080/employees';
+  public static activeEmployees :Observable<Employee[]>;
 
   constructor(private Http:HttpClient) { }
 
   public getEmployees() : Observable<Employee[]>{
-    return this.Http.get<Employee[]>
+   
+     this.Http.get<Employee[]>
     (`${this.employeeUrl}/all`);
+    console.log(EmployeeService.activeEmployees);
+    return EmployeeService.activeEmployees;
   }
-
+  
   public addEmployee(employee:Employee):Observable<Employee>{
     return this.Http.post<Employee>(`${this.employeeUrl}/add`,employee);
   }
@@ -33,12 +37,18 @@ export class EmployeeService {
   }
   public getActiveEmployees():Observable<Employee[]>
   {
-    return this.Http.get<Employee[]>(`${this.employeeUrl}/all/active`)
+    EmployeeService.activeEmployees = this.Http.get<Employee[]>(`${this.employeeUrl}/all/active`);
+    return EmployeeService.activeEmployees
   }
   public getRemovedEmployees():Observable<Employee[]>
   {
     return this.Http.get<Employee[]>(`${this.employeeUrl}/all/removed`)
   }
-
+  public getEmployeeById(employeeId:number) : Observable<Employee>{
+   
+   return this.Http.get<Employee>
+   (`${this.employeeUrl}//find/${employeeId}`);
+   console.log(EmployeeService.activeEmployees);
+ }
   
 }

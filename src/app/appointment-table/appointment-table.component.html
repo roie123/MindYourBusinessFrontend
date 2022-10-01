@@ -1,7 +1,6 @@
 
 <div class="topnav a">
   <a (click)="showAddForm()"  [style.background-color]="isShowingAppointmentForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD APPOINTMENT</a>
-    <a (click)="showEdit()"    [style.background-color]="isShowingAppointmentsEditForm ? 'rgb(78, 78, 78)' : '#343535'">EDIT MODE</a>
   </div>
   <app-appointment-form *ngIf="isShowingAppointmentForm"></app-appointment-form>
  
@@ -19,6 +18,7 @@
       <tr *ngFor="let appointment of appointments">
          <td class="td">
             <div >
+            
                 <p >{{appointment.client.firstName}} {{appointment.client.lastName}}</p>
                 <p ></p>
               </div>
@@ -33,7 +33,8 @@
           </div>
         </td>
         <td class="td">
-          <p >{{appointment.employee.firstName}} {{appointment.employee.lastName}} </p>
+          <span *ngIf="!appointment.employee.isActive" class="firedFucker" >FIRED</span>
+          <p > {{appointment.employee.firstName}} {{appointment.employee.lastName}} </p>
           <div >
             <img
                 src="https://icon-library.com/images/generic-profile-icon/generic-profile-icon-6.jpg"
@@ -50,11 +51,12 @@
 
         <td class="td">{{appointment.localDateTime}}</td>
         <td class="td">
-          <button type="button" >
-            Edit
+          <button type="button" (click)="cancelAppointment(appointment.id)" >
+            CANCEL
           </button>
 
         </td>
+       
       </tr> 
     
       

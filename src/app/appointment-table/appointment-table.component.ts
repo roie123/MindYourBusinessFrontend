@@ -57,5 +57,13 @@ export class AppointmentTableComponent implements OnInit {
   public showAddForm():void{
     this.isShowingAppointmentForm=!this.isShowingAppointmentForm;
   }
+    public cancelAppointment(appointmentId:number){
+      this.appointmentService.deleteAppointment(appointmentId).subscribe();
+      window.location.reload();
+    }
+
+
+
+    
 
 }

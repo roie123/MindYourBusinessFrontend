@@ -1,19 +1,45 @@
 
-<form #AddNewAppointment="ngForm" class="AddEmployeeForm"  (ngSubmit)="addNewAppointment(AddNewAppointment)">
     <h1> ADD A NEW APPOINTMENT</h1>
-  
-    <input  type="text" class="inputShit" ngModel name="clientId"   placeholder="EMPLOYEE ID"> <br> <br>
-  
-    <input type="text" class="inputShit" ngModel name="employeeId"   placeholder="CLIENT ID"><br><br>
-  
     
-    <input type="text" class="inputShit"  ngModel name="serviceId"  ngModel placeholder="SERVICE ID"><br><br>
+    <div>CHOOSE EMPLOYEE</div>
+    <select name="employeeSelector" [(ngModel)]="selectedEmployee"  >
+      
+      <option  *ngFor="let employee of employees" [value]="employee.id" >{{employee.firstName +" "+ employee.lastName}}  </option>
+    </select>
+<div>CHOOSE CLIENT</div>
+      <select name="clientSelector" [(ngModel)]="selectedClient"  >
+      <option  *ngFor="let client of clients" [value]="client.id" >{{client.firstName +" "+ client.lastName}} </option>
+    </select >
   
-      <button type="submit" class="inputShit" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="addNewAppointment(AddNewAppointment)">ADD NEW</button>
-   
+    <div>CHOOSE SERVICE</div>
+    <select name="serviceSelector" [(ngModel)]="selectedService" > 
+        <option  *ngFor="let service of services" [value]="service.id" >{{service.name}} </option>
+    </select>
+    <div>HOUR</div>
+    <select name="hour" [(ngModel)]="selectedHour" > 
+      <option  *ngFor="let hour of hourArray" [value]="hour" >{{hour}}:00 </option>
+  </select>
 
-  
-  </form>
+  <div>MINUTE</div>
+  <select name="minute" [(ngModel)]="selectedMinute" > 
+    <option  *ngFor="let minute of minuteArray" [value]="minute" >{{minute}}:00 </option>
+</select>
+<div>DAY</div>
+<select name="day" [(ngModel)]="selectedDay" > 
+  <option  *ngFor="let day of dayArray" [value]="day" >{{day}} </option>
+</select>
+<div>MONTH</div>
+<select name="month" [(ngModel)]="selectedMonth" > 
+  <option  *ngFor="let month of monthArray" [value]="month" >{{month}} </option>
+</select>
+<div>YEAR</div>
+<select name="year" [(ngModel)]="selectedYear" > 
+  <option  *ngFor="let year of yearArray" [value]="year" >{{year}} </option>
+</select>
+
+
+<button (click)="addNewAppointment()" class="block">ADD NEW </button>
+
 
 
 

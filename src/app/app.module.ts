@@ -12,6 +12,7 @@ import { EmployeeFormComponent } from './employee-table/employee-form/employee-f
 import { RouterModule } from '@angular/router';
 import { ClientFormComponent } from './client-table/client-form/client-form.component';
 import { AppointmentFormComponent } from './appointment-table/appointment-form/appointment-form.component';
+import { ServiceFormComponent } from './service-table/service-form/service-form.component';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AppointmentFormComponent } from './appointment-table/appointment-form/a
     EmployeeFormComponent,
     ClientFormComponent,
     AppointmentFormComponent,
+    ServiceFormComponent,
     
   ],
   imports: [
