@@ -1,4 +1,5 @@
 
+    <div class="inputShit">
     <h1> ADD A NEW APPOINTMENT</h1>
     
     <div>CHOOSE EMPLOYEE</div>
@@ -37,19 +38,11 @@
   <option  *ngFor="let year of yearArray" [value]="year" >{{year}} </option>
 </select>
 
+<div>
+<button (click)="addNewAppointment()" class="button">ADD NEW </button>
+</div>
 
-<button (click)="addNewAppointment()" class="block">ADD NEW </button>
-
-
-
+</div>
 
   
-  <!--   id:number,
-    client:Client,
-    employee:Employee,
-    someService:AllowedProceduresToPerforme,
-    localDateTime: string
-} -->
-<!-- TODO
-   MAKE THE REQUEST OF A NEW APPOINTMENT TO BE BY NAMES OF THE EMPLOYEE AND THE CLIENT WITH A DROPDOWN OF THE SERVICES 
- -->
+  

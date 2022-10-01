@@ -1,21 +1,23 @@
 
+<div class="inputShit">
 <form #AddNewEmployee="ngForm"   (ngSubmit)="onSubmitEmployee(AddNewEmployee)">
   <h1> ADD A NEW EMPLOYEE</h1>
 
-  <input type="text" class="inputShit" ngModel name="firstName"   placeholder="FIRST NAME"> <br> <br>
+  <input type="text"  ngModel name="firstName"   placeholder="FIRST NAME"> <br> <br>
 
-  <input type="text" class="inputShit" ngModel name="lastName"   placeholder="LAST NAME"><br><br>
+  <input type="text" ngModel name="lastName"   placeholder="LAST NAME"><br><br>
 
   
-  <input type="text" class="inputShit"  ngModel name="email"  ngModel placeholder="E-mail"><br><br>
+  <input type="text"  ngModel name="email"  ngModel placeholder="E-mail"><br><br>
 
-  <input type="number" class="inputShit"  ngModel name="yearsOfExperience"   placeholder="YEARS IN FIELD"><br><br>
+  <input type="number"  ngModel name="yearsOfExperience"   placeholder="YEARS IN FIELD"><br><br>
 
-  <input type="text" class="inputShit" ngModel name="position"   placeholder="POSITION"><br><br>
-  <button type="submit" class="inputShit" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="onSubmitEmployee(AddNewEmployee)">ADD NEW</button>
+  <input type="text" ngModel name="position"   placeholder="POSITION"><br><br>
+  <button type="submit" class="button" style="margin: auto;"  [disabled]="!isAbleToSubmit"  for="submitButton" (click)="onSubmitEmployee(AddNewEmployee)">ADD NEW</button>
  
 
 
 
 
 </form>
+</div>

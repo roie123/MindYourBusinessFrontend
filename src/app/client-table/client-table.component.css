@@ -59,3 +59,19 @@
 }
 
 
+.button{
+  text-align: center;
+  top:40%;
+  background-color:#343535;
+  color: #ffff;
+  border:#333; 
+  border-radius: 20px; 
+  padding:10px;
+  height:30px; 
+  width: 100px;
+}
+.button :hover{
+  
+  background-color:rgb(78, 78, 78);
+  transition: 0.7s;
+}

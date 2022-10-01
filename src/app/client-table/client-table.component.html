@@ -12,6 +12,7 @@
         <th>PHONE NUMBER</th>
         <th>ID</th>
         <th>ACTIONS</th>
+        <th *ngIf="isShowingEditForm">EDIT</th>
       </tr>
     </thead>
     <tbody>
@@ -38,7 +39,7 @@
         <td>{{client.id}}</td>
         <td  >
       
-          <button type="button" (click)="removeClient(client)" >
+          <button type="button" class="button" (click)="removeClient(client)" >
             REMOVE
           </button>
         </td>
@@ -51,9 +52,9 @@
           
             
             <input type="text"  ngModel name="phoneNumber"  ngModel placeholder={{client.phoneNumber}}><br><br>
-  
-            <button type="submit"   for="submitButton" (click)="onUpdateClient(editClient,client.id)">SAVE</button>
-          
+           
+            <button class="button"  type="submit"  for="submitButton" (click)="onUpdateClient(editClient,client.id ) ">SAVE</button>
+       
           </form>
         </div>
       </tr> 

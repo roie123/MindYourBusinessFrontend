@@ -17,6 +17,7 @@
         <th>SERVICES</th>
         <th>POSITION</th>
         <th>ACTIONS</th>
+        <th *ngIf="isShowingEditForm" >EDIT</th>
       </tr>
     </thead>
     <tbody>
@@ -47,7 +48,7 @@
         <td>{{employee.position}}</td>
         <td>
           
-          <button type="button" (click)="removeEmployee(employee)" >FIRE</button>
+          <button type="button" class="button" (click)="removeEmployee(employee)" >FIRE</button>
         </td>
         <div  *ngIf="isShowingEditForm"  >
           <form #editEmployee="ngForm"  (ngSubmit)="onUpdateEmployee(editEmployee,employee.id)">
@@ -63,7 +64,7 @@
           
             <input type="text" ngModel name="position"   placeholder={{employee.position}}><br><br>
 
-            <button type="submit"   for="submitButton" (click)="onUpdateEmployee(editEmployee,employee.id)">SAVE</button>
+            <button type="submit" class="button"  for="submitButton" (click)="onUpdateEmployee(editEmployee,employee.id)">SAVE</button>
           
           </form>
         </div>

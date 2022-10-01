@@ -1,4 +1,5 @@
 
+<div class="inputShit">
 <form #AddNewClient="ngForm" class="AddEmployeeForm"  (ngSubmit)="onSubmitClient(AddNewClient)">
     <h1> ADD A NEW CLIENT</h1>
   
@@ -9,9 +10,10 @@
     
     <input type="text" class="inputShit"  ngModel name="phoneNumber"  ngModel placeholder="PHONENUMBER"><br><br>
   
-      <button type="submit" class="inputShit" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="onSubmitClient(AddNewClient)">ADD NEW</button>
+      <button type="submit" class="button" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="onSubmitClient(AddNewClient)">ADD NEW</button>
    
 
   
   </form>
+</div>
   

@@ -33,4 +33,7 @@ export class ServiceTableComponent implements OnInit {
     this.isShowingForm=!this.isShowingForm;
   }
 
+  public removeService(serviceId:number, service:AllowedProceduresToPerforme):void{
+    this.serviceService.removeService(serviceId,service).subscribe();
+  }
 }

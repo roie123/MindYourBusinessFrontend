@@ -21,7 +21,9 @@ export class AllowedProcuduresToPerformService {
   public addService(service:AllowedProceduresToPerforme,employeeId:number):Observable<AllowedProceduresToPerforme>{
     return this.Http.post<AllowedProceduresToPerforme>(`${this.servicesUrl}/add/${employeeId}`,service);
   }
-  
+  public removeService(serviceId:number, allowedProcuduresToPerform:AllowedProceduresToPerforme):Observable<AllowedProceduresToPerforme>{
+    return this.Http.put<AllowedProceduresToPerforme>(`${this.servicesUrl}/remove/${serviceId}`,allowedProcuduresToPerform); 
+  }
 }
 
 

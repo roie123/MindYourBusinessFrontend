@@ -7,5 +7,7 @@ export interface Appointment{
     client:Client,
     employee:Employee,
     someService:AllowedProceduresToPerforme,
-    localDateTime: string
+    localDateTime: string,
+    completed:boolean;
+    hasPast:boolean;
 }

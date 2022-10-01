@@ -7,6 +7,7 @@ import { Appointment } from '../MODELS/appointments';
   providedIn: 'root'
 })
 export class AppointmentService  {
+  
   private appointmentUrl='http://localhost:8080/appointments';
 
   constructor(private Http:HttpClient) { }
@@ -31,6 +32,10 @@ public removeClient(appointment:Appointment):Observable<Appointment>{
 public addAppointmentById(clientId:number,employeeId:number,serviceId:number,hour:number,minute:number,day:number,month:number,year:number, appointment:Appointment):Observable<void>{
   
   return this.Http.post<void>(`${this.appointmentUrl}/add/${clientId}/${employeeId}/${serviceId}/${hour}/${minute}/${day}/${month}/${year}`,appointment)
+
+}
+public completeAppointment(appointmentId:number,appointment:Appointment):Observable<Appointment>{
+return this.Http.put<Appointment>(`${this.appointmentUrl}/completed_appointment/${appointmentId}`,appointment);
 }
  
 

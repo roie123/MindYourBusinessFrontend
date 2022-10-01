@@ -53,15 +53,17 @@
         </td>
         
         <td  class="td" >
-         <h6> - {{appointment.someService.name}}</h6>   
+         <h5> 
+          <span class="firedFucker" *ngIf="!appointment.someService.active">SERVICE NOT AVAILBLE </span>
+          - {{appointment.someService.name}}</h5>   
         </td>
 
         <td class="td">{{appointment.localDateTime}}</td>
         <td class="td">
-          <button type="button" (click)="cancelAppointment(appointment.id)" >
-            CANCEL
-          </button>
-
+          
+          <button type="button" class="button :hover" (click)="cancelAppointment(appointment.id)" >CANCEL          </button>
+          <button *ngIf="appointment.hasPast" class="button" (click)="setComplete(appointment.id, appointment)" >DONE</button>
+       
         </td>
        
       </tr> 

@@ -5,5 +5,6 @@ export interface AllowedProceduresToPerforme{
     name :string,
     durationInMinutes: number,
     employee:Employee,
-    price:number
+    price:number,
+    active:boolean;
 }
