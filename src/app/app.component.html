@@ -1,16 +1,14 @@
+
 <div class="topnav">
-  <a (click)="showClients()"  >CLIENTS</a>
-  <a (click)="showEmployees()">EMPLOYEES</a>
-  <a (click)="showAppointments()">APPOINTMENTS</a>
-  <a (click)="showServices()">SERVICES</a>
+  <a routerLink="clients"  >CLIENTS</a>
+  <a routerLink="employees">EMPLOYEES</a>
+  <a routerLink="appointments">APPOINTMENTS</a>
+  <a routerLink="services">SERVICES</a>
 </div>
-<div >
-  <app-employee-table *ngIf="showEmployeeTable"  ></app-employee-table>
-  <app-appointment-table *ngIf="showAppointmentTable"></app-appointment-table>
-  <app-client-table *ngIf="showClientTable"></app-client-table>
-  <app-service-table *ngIf="showServicesTable" ></app-service-table>
-  
- </div>
+<router-outlet></router-outlet>
+
+
+
 
 
 

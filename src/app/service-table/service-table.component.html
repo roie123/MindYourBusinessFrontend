@@ -1,6 +1,9 @@
 
 
-<a type="button" class="block" (click)="showFormToggle()">ADD NEW SERVICE</a>   
+<div class="topnav">
+<a type="button" [style.background-color]="isShowingForm ? 'rgb(78, 78, 78)' : '#343535'" class="block" (click)="showFormToggle()">ADD NEW SERVICE</a>   
+</div>
+
 <app-service-form *ngIf="isShowingForm"></app-service-form>
 <table class="table">
     <thead  class="th">

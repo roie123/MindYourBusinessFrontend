@@ -5,8 +5,6 @@
   <a (click)="showEditFormActivator()" [style.background-color]="isShowingEditForm ? 'rgb(78, 78, 78)' : '#343535'" >EDIT MODE </a>
 </div>
 
-<!-- <button (click)="showEmployeeForm()" style="margin: auto;" type="button" class="block" [style.background-color]="isShowingEmployeeForm ? '#A9A9A9' : '#343535'">ADD NEW EMPLOYEE </button>   
-<button (click)="showEditFormActivator()" style="margin: auto;" type="button" class="block" [style.background-color]="isShowingEditForm ? '#A9A9A9' : '#343535'">EDIT EMPLOYEES</button>    -->
 <app-employee-form *ngIf="isShowingEmployeeForm"></app-employee-form>
 
 <table  class="table" >
@@ -14,7 +12,7 @@
       <tr>
         <th>FULL NAME</th>
         <th>EXPERIENCE</th>
-        <th>SERVICES</th>
+        
         <th>POSITION</th>
         <th>ACTIONS</th>
         <th *ngIf="isShowingEditForm" >EDIT</th>
@@ -41,9 +39,7 @@
           <p >{{employee.yearsOfExperience}} YEARS</p>
           <p >{{employee.email}}</p>
         </td>
-        <td  >
-         <h6 *ngFor="let service of employee.allowedProceduresToPerform"> - {{service.name}}</h6>   
-        </td>
+       
 
         <td>{{employee.position}}</td>
         <td>
