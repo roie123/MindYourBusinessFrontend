@@ -8,6 +8,6 @@ export interface Employee{
     allowedProceduresToPerform:AllowedProceduresToPerforme[],
     email : string,
     position : string,
-    isActive:boolean;
+    active:boolean;
 
 }

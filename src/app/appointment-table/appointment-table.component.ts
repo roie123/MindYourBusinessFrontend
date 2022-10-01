@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Appointment } from '../MODELS/appointments';
+import { Employee } from '../MODELS/employee';
 import { AppointmentService } from '../SERVICES/appointment.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class AppointmentTableComponent implements OnInit {
   public appointment!:Appointment;
   public isShowingAppointmentForm=false;
   public isShowingAppointmentsEditForm=false;
+
   constructor(private appointmentService:AppointmentService) { }
 
   ngOnInit(): void {
@@ -64,6 +66,6 @@ export class AppointmentTableComponent implements OnInit {
 
 
 
-    
+
 
 }

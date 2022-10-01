@@ -19,8 +19,8 @@
          <td class="td">
             <div >
             
-                <p >{{appointment.client.firstName}} {{appointment.client.lastName}}</p>
-                <p ></p>
+                <p > {{appointment.client.firstName}} {{appointment.client.lastName}}</p>
+                <p ></p> 
               </div>
           <div >
             <img
@@ -33,18 +33,25 @@
           </div>
         </td>
         <td class="td">
-          <span *ngIf="!appointment.employee.isActive" class="firedFucker" >FIRED</span>
-          <p > {{appointment.employee.firstName}} {{appointment.employee.lastName}} </p>
-          <div >
+         
+          
+          <span *ngIf="!appointment.employee.active">  </span>
+
+          <p  > {{appointment.employee.firstName}} {{appointment.employee.lastName}}  
+            <span *ngIf="appointment.employee.active" class="firedFucker">FIRED</span>
+          </p>
+          <div  >
             <img
                 src="https://icon-library.com/images/generic-profile-icon/generic-profile-icon-6.jpg"
                 alt=""
-                style="width: 45px; height: 45px"
+                style="width: 45px; height: 45px;color: #000;"
                 class="rounded-circle"
+              
                 />
-            
+            <div></div>
           </div>
         </td>
+        
         <td  class="td" >
          <h6> - {{appointment.someService.name}}</h6>   
         </td>
