@@ -1,7 +1,7 @@
 
 
 <div class="topnav">
-<a type="button" [style.background-color]="isShowingForm ? 'rgb(78, 78, 78)' : '#343535'" class="block" (click)="showFormToggle()">ADD NEW SERVICE</a>   
+<a type="button" style="margin-left: 41%;" [style.background-color]="isShowingForm ? 'rgb(78, 78, 78)' : '#343535'"  (click)="showFormToggle()">ADD NEW SERVICE</a>   
 </div>
 
 <app-service-form *ngIf="isShowingForm"></app-service-form>
@@ -11,12 +11,11 @@
         <th>SERVICE NAME</th>
         <th>DURATION</th>
         <th>PRICE</th>
-        <th></th>
         <th>ACTIONS</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let service of services">
+      <tr style="text-align: center;" *ngFor="let service of services">
          <td class="td">
             <div >
                 <p >{{service.name }}</p> <span *ngIf="!service.active" style="color: red;">SERVICE NOT AVAILBLE</span>
@@ -26,18 +25,18 @@
           
             
           </div>
-        </td>
-        <td>
+        </td >
+        <td class="td">
           <p >{{service.durationInMinutes}} MINUTES</p>
           <p ></p>
         </td>
-        <td  >
-         <h6>{{service.price}}</h6>    
+        <td class="td"  >
+         <h6 class="td" style="font-size: 17px;">{{service.price}} $</h6>    
         </td>
 
-        <td></td>
-        <td>
-          <button type="button" class="button" (click)="removeService(service.id,service)">
+       
+        <td class="td" >
+          <button type="button"  class="button"   (click)="removeService(service.id,service)" >
             REMOVE
           </button>
         </td>

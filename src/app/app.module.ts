@@ -13,6 +13,9 @@ import { RouterModule } from '@angular/router';
 import { ClientFormComponent } from './client-table/client-form/client-form.component';
 import { AppointmentFormComponent } from './appointment-table/appointment-form/appointment-form.component';
 import { ServiceFormComponent } from './service-table/service-form/service-form.component';
+import { FinancialComponent } from './financial/financial.component';
+import { FinanceFormComponent } from './financial/finance-form/finance-form.component';
+import { ExpenseFormComponent } from './financial/expense-form/expense-form.component';
 
 
 @NgModule({
@@ -26,6 +29,9 @@ import { ServiceFormComponent } from './service-table/service-form/service-form.
     ClientFormComponent,
     AppointmentFormComponent,
     ServiceFormComponent,
+    FinancialComponent,
+    FinanceFormComponent,
+    ExpenseFormComponent,
     
   ],
   imports: [

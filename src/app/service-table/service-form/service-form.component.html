@@ -1,22 +1,16 @@
 <div class="inputShit">
 <form #AddNewService="ngForm"   (ngSubmit)="addService(AddNewService)">
-    <h1> ADD A NEW Service</h1>
+    <h1> ADD A NEW SERVICE</h1>
   
-    <input type="text" ngModel name="name"   placeholder="NAME"> <br> <br>
+    <input type="text" class="selectShit" ngModel name="name"   placeholder="NAME"> <br> <br>
   
-    <input type="number" ngModel name="durationInMinutes"   placeholder="DURATION"><br><br>
+    <input type="number" class="selectShit" ngModel name="durationInMinutes"   placeholder="DURATION"><br><br>
    
-       <p>SELECT AN EMPLOYEE</p>
-    <select name="employeeSelector" id="employee" [(ngModel)]="selectedEmployeeId"> 
-        <option *ngFor="let employee of employees" [value]="employee.id" >{{employee.firstName}} {{employee.lastName}}</option>
-    </select>
-    <p>  </p>
+  
 
-    <input type="number" ngModel name="price"  ngModel placeholder="PRICE"><br><br>
+    <input type="number" class="selectShit" ngModel name="price"  ngModel placeholder="PRICE"><br><br>
   
-    <input type="number"  ngModel name="yearsOfExperience"   placeholder="YEARS IN FIELD"><br><br>
   
-    <input type="text"  ngModel name="position"   placeholder="POSITION"><br><br>
     <button type="submit" class="button" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="addService(AddNewService)">ADD NEW</button>
    
   

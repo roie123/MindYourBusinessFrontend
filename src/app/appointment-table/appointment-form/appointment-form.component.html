@@ -2,44 +2,58 @@
     <div class="inputShit">
     <h1> ADD A NEW APPOINTMENT</h1>
     
-    <div>CHOOSE EMPLOYEE</div>
-    <select name="employeeSelector" [(ngModel)]="selectedEmployee"  >
+    <div >
+<p style="margin-bottom: 0px; margin-top: 2px;">EMPLOYE</p>   
+ <select class="selectShit"   name="employeeSelector"  [(ngModel)]="selectedEmployee" required  >
       
       <option  *ngFor="let employee of employees" [value]="employee.id" >{{employee.firstName +" "+ employee.lastName}}  </option>
     </select>
-<div>CHOOSE CLIENT</div>
-      <select name="clientSelector" [(ngModel)]="selectedClient"  >
+  </div>
+<div ><p style="margin-bottom: 0px; margin-top: 2px;">CLIENT</p>   
+
+      <select class="selectShit" name="clientSelector" [(ngModel)]="selectedClient"  required>
       <option  *ngFor="let client of clients" [value]="client.id" >{{client.firstName +" "+ client.lastName}} </option>
     </select >
-  
-    <div>CHOOSE SERVICE</div>
-    <select name="serviceSelector" [(ngModel)]="selectedService" > 
+  </div>
+    <div><p style="margin-bottom: 0px; margin-top: 2px;">SERVICE</p>   
+
+    <select class="selectShit" name="serviceSelector" [(ngModel)]="selectedService" required > 
         <option  *ngFor="let service of services" [value]="service.id" >{{service.name}} </option>
     </select>
-    <div>HOUR</div>
-    <select name="hour" [(ngModel)]="selectedHour" > 
+  </div>
+    <div><p style="margin-bottom: 0px; margin-top: 2px;">HOUR</p>   
+
+    <select name="hour" class="selectShit" [(ngModel)]="selectedHour" required > 
       <option  *ngFor="let hour of hourArray" [value]="hour" >{{hour}}:00 </option>
   </select>
+</div>
+  <div><p style="margin-bottom: 0px; margin-top: 2px;">MINUTE</p>   
 
-  <div>MINUTE</div>
-  <select name="minute" [(ngModel)]="selectedMinute" > 
+  <select name="minute" class="selectShit" [(ngModel)]="selectedMinute" required > 
     <option  *ngFor="let minute of minuteArray" [value]="minute" >{{minute}}:00 </option>
 </select>
-<div>DAY</div>
-<select name="day" [(ngModel)]="selectedDay" > 
+</div>
+<div><p style="margin-bottom: 0px; margin-top: 2px;">DAY</p>   
+
+<select name="day" class="selectShit" [(ngModel)]="selectedDay" required > 
   <option  *ngFor="let day of dayArray" [value]="day" >{{day}} </option>
 </select>
-<div>MONTH</div>
-<select name="month" [(ngModel)]="selectedMonth" > 
+</div>
+<div><p style="margin-bottom: 0px; margin-top: 2px;">MONTH</p>   
+
+<select name="month"  class="selectShit"[(ngModel)]="selectedMonth" required > 
   <option  *ngFor="let month of monthArray" [value]="month" >{{month}} </option>
 </select>
-<div>YEAR</div>
-<select name="year" [(ngModel)]="selectedYear" > 
+</div>
+<div><p style="margin-bottom: 0px; margin-top: 2px;">YEAR</p>   
+
+<select name="year" class="selectShit" [(ngModel)]="selectedYear" required > 
   <option  *ngFor="let year of yearArray" [value]="year" >{{year}} </option>
 </select>
+</div>
 
 <div>
-<button (click)="addNewAppointment()" class="button">ADD NEW </button>
+<button (click)="addNewAppointment()" [routerLink]="['/appointments']"  class="button">ADD NEW </button>
 </div>
 
 </div>

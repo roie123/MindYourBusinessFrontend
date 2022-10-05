@@ -1,0 +1,101 @@
+<div class="topnav a">
+<a style="margin-left: 13%; cursor : pointer;" (click)="toggleIncomeTable()">REVENUE</a>
+<a style="margin-left: 26%;    cursor : pointer;" (click)="showEdit()">EDIT</a>
+<a style="margin-left: 25%; cursor : pointer;" (click)="toggleExpenseTable()">EXPENSES</a>
+</div>
+<div  style="margin: 0px 210px 75px 100px; " >
+    <table  class="table_right"  >
+        <thead [hidden]="!isShowingExpenses"class="th_expenses" >
+            <tr>
+            <th>NAME</th>
+            <th>AMOUNT</th>
+            <th *ngIf="!canRemove">DESC</th>
+            <th *ngIf="canRemove">REMOVE</th>
+
+        </tr>
+        </thead>
+        <tbody [hidden]="!isShowingExpenses">
+            <tr  *ngFor="let expense of expenses">
+                <td class="td">{{expense.name}}</td>
+                <td class="td" >{{expense.sum}} $</td>
+                <td *ngIf="!canRemove" class="td">{{expense.description}}</td>
+                <td *ngIf="canRemove" class="td">
+                    <button (click)="removeExpense(expense)" class="button">REMOVE</button>
+                </td>
+
+
+
+
+            </tr>
+          <tr>
+            <td class="td">SALARIES</td>
+            <td class="td" >{{calcTotalSalaries()}}$</td>
+            <td  class="td">TOTAL SALARIES</td>
+          </tr>
+            
+
+        </tbody>
+
+    </table>
+</div>
+
+
+<div [hidden]="!isShowingIncome" style="margin: -100px 0px 0px 230px;" >
+
+    <table class="table_left">
+        <thead class="th_revenue">
+            <tr>
+            <th>NAME</th>
+            <th>AMOUNT</th>
+            <th *ngIf="!canRemove">DESC</th>
+            <th *ngIf="canRemove">REMOVE</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr  *ngFor="let income of incomeItems">
+                <td class="td">{{income.name}}</td>
+                <td class="td" >{{income.sum}}$</td>
+                <td *ngIf="!canRemove" class="td">{{income.description}}</td>
+                <td *ngIf="canRemove" class="td">
+                    <button (click)="removeIncomeItem(income)" class="button">REMOVE</button>
+                </td>
+
+
+
+
+            </tr>
+          <tr>
+            <td class="td">APPOINTMENTS</td>
+            <td class="td" >{{calcTotalIncomeFromAppointments()}}$</td>
+            <td class="td">TOTAL INCOME FROM APPOINTMENTS</td>
+            
+          </tr>
+            
+        
+
+        </tbody>
+       
+
+    </table>
+</div>
+
+<div class="test"[style.background-color]="calcTotalRevenue()-calcTotalExpenses()<0 ? 'red' : 'green'" >
+   {{calcTotalRevenue()-calcTotalExpenses()}} $</div>
+
+
+
+
+   <div class="adding_buttons_container">
+    <button (click)="addIncomeButtonPress()" class="button_here">ADD  </button>
+    <div class="newIncomeComp">
+        <app-finance-form [hidden]="!canAddIncome"  ></app-finance-form>
+        <app-expense-form [hidden]="!canAddexpense"></app-expense-form>
+      </div>
+    <button (click)="addExpenseButtonPress()" class="button_here_expense">ADD</button>
+    
+        
+  
+   
+    
+   </div>
+   

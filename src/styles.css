@@ -1,46 +1,67 @@
-.test{
-    color: green;
-    background-color: green;
-}
+
 .topnav {
     background-color: #333;
     overflow: hidden;
+    width: 100%;
+  display: block;
+ overflow: hidden;
+ margin: auto;
+font-style: normal;
+
   }
   .topnav a {
-    float: left;
     color: #A9A9A9;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+    padding: 10px 12px;
+    font-size: 18px;
+    display: inline-block;
+    list-style-type: none;
+
+
+    
+  }
+  .background{
+background-color: rgb(88, 95, 95);
+margin: auto;
   }
   .topnav a:hover {
-    background-color: rgb(187, 187, 187);
+    background-color: rgb(84, 59, 51);
     color: rgb(255, 255, 255);
   }
   
   .topnav a:active {
-    background-color: #04AA6D;
+    background-color: #2a1e1e;
     color: rgb(255, 255, 255);
   }
   .table{
+    text-align: start;
     border-collapse: collapse;
     width: 100%;
-    margin: 25px 0;
-    font-size: 0.9em;
+    margin: 0;
+    font-size: 1em;
     font-family: sans-serif;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    
+
     
   }
   
   .th {
-    background-color: #343535;
+    background-color: #333;
       color: #ffffff;
-      text-align: left;
+      text-align: center;
   }
   .td{
+    text-align: center;
     padding: 12px 15px;
+    background-color: #A9A9A9;
   
+    
+  }
+  .tr{
+    text-align: center;
+    background-color: #A9A9A9;
+
   }
   
   
@@ -54,18 +75,37 @@
     padding:10px;
     height:30px; 
     width: 100px;
+    cursor : pointer;
   }
   .button :hover{
     
-    background-color:rgb(78, 78, 78);
-    transition: 0.7s;
+    background-color:rgb(84, 59, 51);
+    color: #A9A9A9;
+    transition: 0s;
+    
   }
   .inputShit{
+    display: inline-block;
     text-align: center;
     margin: auto;
     display: table;
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-right: auto;
-    margin-left: auto;
+    padding: 2px;
+    padding-top: 0px;
+    width: 99%;
+    align-items: flex-start;
+    align-content: space-between;
+
+
+
+}
+.selectShit{
+  display: inline-flex;
+  width: 150px;
+  padding: 0;
+  border-radius: 10px;
+  text-align: center;
+}
+.tr:hover{
+  background-color: rgb(189, 30, 30);
+
 }

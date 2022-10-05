@@ -67,6 +67,7 @@ export class AppointmentTableComponent implements OnInit {
 
 public setComplete(appointmentId:number , appointment : Appointment){
   this.appointmentService.completeAppointment(appointmentId, appointment).subscribe();
+  window.location.reload();
 }
 
 

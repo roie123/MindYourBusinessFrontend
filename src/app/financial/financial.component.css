@@ -1,0 +1,154 @@
+.expenses{
+    float: left;
+    margin-left: 25%;
+    float: left;
+    color: #A9A9A9;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 22px;
+    background-color: #333;
+
+}
+.income{
+    background-color: #333;
+    float: right;
+    margin-right:25%;
+    color: #A9A9A9;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 22px;
+    box-sizing: border-box;
+    
+}
+
+.table_right{
+    border-collapse: collapse;
+    text-align: start;
+    position:  relative; left : 20%; 
+
+float: right;
+    width: 30%;
+    margin: 0;
+    font-size: 1em;
+    font-family: sans-serif;
+    border-color: rgb(103, 49, 49);
+    border-style: ridge;
+    width: 400px;
+
+
+ 
+  
+}
+
+    
+  
+  .table_left{
+    text-align: start;
+    position:  relative; right : 20%; 
+float: left;
+    border-collapse: collapse;
+    width: 30%;
+    margin: 0;
+    font-size: 1em;
+    font-family: sans-serif;
+    border-color: rgb(70, 136, 83);
+    border-style: ridge;
+    
+    border-style: groove;
+    width: 400px;
+
+
+    
+  }
+  .test{
+    background-color: green;
+    text-align: center;
+    line-height: 70px;
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    left: 548px;
+    bottom: 110px;
+    border-radius: 20%;
+    border-style: double;
+    
+
+}
+.th_expenses{
+    background-color: rgb(139, 28, 28);
+    color: #ffffff;
+    text-align: center;
+    
+}
+.th_revenue{
+    background-color: rgb(30, 90, 53);
+    color: #ffffff;
+    text-align: center;
+}
+
+.adding_buttons_container{
+    width: 400px;
+    position: absolute;
+    left: 34.5%;
+    top: 120px;
+    justify-content: space-between;
+    display: flex;
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+    align-items: flex-start;
+}
+.button_here{
+    text-align: center;
+    top:40%;
+    background-color:#343535;
+    color: #ffff;
+    border:#333; 
+    border-radius: 20px; 
+    padding:10px;
+    height:30px; 
+    width: 100px;
+    cursor : pointer;
+    margin-left: 0px;
+    margin-right: 0px;
+    
+}
+
+
+
+.button_here:hover{
+    color: green;
+}
+.button_here_expense{
+    text-align: center;
+    top:40%;
+    background-color:#343535;
+    color: #ffff;
+    border:#333; 
+    border-radius: 20px; 
+    padding:10px;
+    height:30px; 
+    width: 100px;
+    cursor : pointer;
+    margin-left: 0px;
+    margin-right: 0px;
+    
+}
+.button_here_expense:hover{
+    color: red;
+}
+.button{
+    text-align: center;
+    top:40%;
+    background-color:#343535;
+    color: #ffff;
+    border:#333; 
+    border-radius: 20px; 
+    padding:10px;
+    height:15px; 
+    width: 80px;
+    cursor : pointer;
+    line-height: 5px;
+  }

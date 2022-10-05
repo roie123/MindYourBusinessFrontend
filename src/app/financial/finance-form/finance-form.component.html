@@ -1,0 +1,22 @@
+<div class="inputShit" >
+    <form #addNewItem="ngForm"   (ngSubmit)="addIncome(addNewItem)">
+        
+      <h4>NEW INCOME</h4>
+    
+      <input type="text"  class="selectShit" ngModel name="name"   placeholder="NAME"> <br> <br>
+    
+      <input type="number" ngModel name="sum"  class="selectShit" placeholder="AMOUNT"><br><br>
+    
+      
+      <input type="text" class="selectShit" ngModel name="description"  ngModel placeholder="DESC"><br><br>
+    
+     
+      <button type="submit" class="button" style="margin: auto;" [disabled]="!isAbleToSubmit"   for="submitButton" (click)="addIncome(addNewItem)">ADD NEW</button>
+     
+    
+    
+    
+    
+    </form>
+    </div>
+    

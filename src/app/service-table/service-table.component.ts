@@ -35,5 +35,6 @@ export class ServiceTableComponent implements OnInit {
 
   public removeService(serviceId:number, service:AllowedProceduresToPerforme):void{
     this.serviceService.removeService(serviceId,service).subscribe();
+    window.location.reload();
   }
 }

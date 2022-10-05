@@ -38,6 +38,10 @@ public completeAppointment(appointmentId:number,appointment:Appointment):Observa
 return this.Http.put<Appointment>(`${this.appointmentUrl}/completed_appointment/${appointmentId}`,appointment);
 }
  
+public getCompletedAppointments() : Observable<Appointment[]>{
+  return this.Http.get<Appointment[]>
+  (`${this.appointmentUrl}/completed`);
+}
 
 
 }

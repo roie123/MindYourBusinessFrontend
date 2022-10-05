@@ -122,6 +122,7 @@ public getServices(): void {
    this.selectedHour,this.selectedMinute,
    this.selectedDay,this.selectedMonth,this.selectedYear ,
    this.newAppointment).subscribe();
+   window.location.reload();
   }
 
 }

@@ -1,23 +1,23 @@
 
 
 <div class="topnav a">
-<a (click)="showClientForm()"  [style.background-color]="isShowingClientForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD CLIENT</a>
+<a (click)="showClientForm()" style="margin-left: 485px;"  [style.background-color]="isShowingClientForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD CLIENT</a>
   <a (click)="showEditForm()" [style.background-color]="isShowingEditForm ? 'rgb(78, 78, 78)' : '#343535'">EDIT MODE</a>
 </div>
 <app-client-form *ngIf="isShowingClientForm"></app-client-form>
 <table class="table" >
     <thead class="th" >
-      <tr>
+      <tr >
         <th>FULL NAME</th>
         <th>PHONE NUMBER</th>
         <th>ID</th>
-        <th>ACTIONS</th>
-        <th *ngIf="isShowingEditForm">EDIT</th>
+        <th *ngIf="!isShowingEditForm">ACTIONS</th>
+        <th *ngIf="isShowingEditForm">EDIT -></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let client of clients">
-         <td>
+      <tr style="text-align: center;" *ngFor="let client of clients">
+         <td class="td" >
             <div >
                 <p >{{client.firstName}} {{client.lastName}}</p>
                 <p ></p>
@@ -31,27 +31,28 @@
                 />
             
           </div>
+        </td >
+        <td class="td" >
+          <p style="text-align: center;">{{client.phoneNumber}}</p>
         </td>
-        <td>
-          <p >{{client.phoneNumber}}</p>
-          <p ></p>
-        </td>
-        <td>{{client.id}}</td>
-        <td  >
+        <td class="td" style="text-align: center;">{{client.id}}</td>
+        <td class="td"   >
       
-          <button type="button" class="button" [routerLink]="['/clients']" routerLinkActive="router-link-active"  (click)="removeClient(client)" >
+          <div *ngIf="!isShowingEditForm" class="button" style="position:  relative; left : 140px; "  >
+          <button   type="button" class="button"   (click)="removeClient(client)" >
             REMOVE
           </button>
+        </div>
         </td>
          <div  *ngIf="isShowingEditForm"  >
           <form #editClient="ngForm"  (ngSubmit)="onUpdateClient(editClient,client.id)">
       
-            <input type="text" ngModel name="firstName"   placeholder={{client.firstName}}><br> <br>
+            <input type="text" class="selectShit" ngModel name="firstName"   placeholder={{client.firstName}}><br> <br>
           
-            <input type="text" ngModel name="lastName"   placeholder={{client.lastName}}><br><br>
+            <input type="text" class="selectShit" ngModel name="lastName"   placeholder={{client.lastName}}><br><br>
           
             
-            <input type="text"  ngModel name="phoneNumber"  ngModel placeholder={{client.phoneNumber}}><br><br>
+            <input type="text" class="selectShit"  ngModel name="phoneNumber"  ngModel placeholder={{client.phoneNumber}}><br><br>
            
             <button class="button"  [routerLink]="['/clients']" type="submit"  for="submitButton" (click)="onUpdateClient(editClient,client.id )  ">SAVE</button>
        

@@ -1,7 +1,7 @@
 
 
 <div class="topnav a">
-  <a (click)="showEmployeeForm()"  [style.background-color]="isShowingEmployeeForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD EMPLOYEE</a>
+  <a (click)="showEmployeeForm()" style="margin-left: 460px;" [style.background-color]="isShowingEmployeeForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD EMPLOYEE</a>
   <a (click)="showEditFormActivator()" [style.background-color]="isShowingEditForm ? 'rgb(78, 78, 78)' : '#343535'" >EDIT MODE </a>
 </div>
 
@@ -9,17 +9,18 @@
 
 <table  class="table" >
     <thead class="th" >
-      <tr>
-        <th>FULL NAME</th>
+      <tr class="th" >
+        <th >FULL NAME</th>
         <th>EXPERIENCE</th>
-        
         <th>POSITION</th>
-        <th>ACTIONS</th>
-        <th *ngIf="isShowingEditForm" >EDIT</th>
+        <th>SALARY</th>
+        <th *ngIf="!isShowingEditForm">ACTIONS</th>
+        
+        <th *ngIf="isShowingEditForm" >EDIT -></th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let employee of employees">
+      <tr style="text-align: center;" *ngFor="let employee of employees">
          <td class="td">
             <div >
                 <p >{{employee.firstName}} {{employee.lastName}}</p>
@@ -34,31 +35,34 @@
                 />
             
           </div>
-        </td>
-        <td>
+        </td >
+        <td class="td">
           <p >{{employee.yearsOfExperience}} YEARS</p>
           <p >{{employee.email}}</p>
         </td>
        
 
-        <td>{{employee.position}}</td>
-        <td>
+        <td class="td">{{employee.position}}</td>
+        <td class="td">{{employee.salary}} $</td>
+        <td class="td">
           
-          <button type="button" class="button" (click)="removeEmployee(employee)" >FIRE</button>
+          <div *ngIf="!isShowingEditForm" style="position:  relative; left : 64px; "  class="button">
+          <button  type="button" class="button" (click)="removeEmployee(employee)" >FIRE</button>
+        </div>
         </td>
         <div  *ngIf="isShowingEditForm"  >
           <form #editEmployee="ngForm"  (ngSubmit)="onUpdateEmployee(editEmployee,employee.id)">
       
-            <input type="text" ngModel name="firstName"   placeholder={{employee.firstName}}><br> <br>
+            <input type="text" class="selectShit" ngModel name="firstName"   placeholder={{employee.firstName}}><br> <br>
           
-            <input type="text" ngModel name="lastName"   placeholder={{employee.lastName}}><br><br>
+            <input type="text" class="selectShit" ngModel name="lastName"   placeholder={{employee.lastName}}><br><br>
           
             
-            <input type="text"  ngModel name="email"  ngModel placeholder={{employee.email}}><br><br>
+            <input type="text" class="selectShit"  ngModel name="email"  ngModel placeholder={{employee.email}}><br><br>
           
-            <input type="number"  ngModel name="yearsOfExperience"   placeholder={{employee.yearsOfExperience}}><br><br>
+            <input type="number" class="selectShit" ngModel name="yearsOfExperience"   placeholder={{employee.yearsOfExperience}}><br><br>
           
-            <input type="text" ngModel name="position"   placeholder={{employee.position}}><br><br>
+            <input type="text"  class="selectShit" ngModel name="position"   placeholder={{employee.position}}><br><br>
 
             <button type="submit" class="button"  for="submitButton" (click)="onUpdateEmployee(editEmployee,employee.id)">SAVE</button>
           

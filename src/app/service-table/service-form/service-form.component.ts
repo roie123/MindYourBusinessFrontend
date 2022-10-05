@@ -29,6 +29,7 @@ public addService(service:NgForm){
   this.proceduresService.addService(service.value,this.selectedEmployeeId).subscribe(
     (response : AllowedProceduresToPerforme)=>{console.log(service),
       (response:HttpErrorResponse)=>{console.log(response.message)}});
+      window.location.reload();
 }
 public submitToggle(){
   this.isAbleToSubmit=!this.isAbleToSubmit;

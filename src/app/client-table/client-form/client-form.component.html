@@ -3,12 +3,12 @@
 <form #AddNewClient="ngForm" class="AddEmployeeForm"  (ngSubmit)="onSubmitClient(AddNewClient)">
     <h1> ADD A NEW CLIENT</h1>
   
-    <input type="text" class="inputShit" ngModel name="firstName"   placeholder="FIRST NAME"> <br> <br>
+    <input type="text" class="selectShit" ngModel name="firstName"   placeholder="FIRST NAME"> <br> <br>
   
-    <input type="text" class="inputShit" ngModel name="lastName"   placeholder="LAST NAME"><br><br>
+    <input type="text" class="selectShit" ngModel name="lastName"   placeholder="LAST NAME"><br><br>
   
     
-    <input type="text" class="inputShit"  ngModel name="phoneNumber"  ngModel placeholder="PHONENUMBER"><br><br>
+    <input type="text" class="selectShit"  ngModel name="phoneNumber"  ngModel placeholder="PHONENUMBER"><br><br>
   
       <button type="submit" class="button" [disabled]="!isAbleToSubmit"  for="submitButton" (click)="onSubmitClient(AddNewClient)">ADD NEW</button>
    

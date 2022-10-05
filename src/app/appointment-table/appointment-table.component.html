@@ -1,6 +1,6 @@
 
 <div class="topnav a">
-  <a (click)="showAddForm()"  [style.background-color]="isShowingAppointmentForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD APPOINTMENT</a>
+  <a (click)="showAddForm()" style="margin-left: 43%;"  [style.background-color]="isShowingAppointmentForm ? 'rgb(78, 78, 78)' : '#343535'" > ADD APPOINTMENT</a>
   </div>
   <app-appointment-form *ngIf="isShowingAppointmentForm"></app-appointment-form>
  
@@ -38,7 +38,7 @@
           <span *ngIf="!appointment.employee.active">  </span>
 
           <p  > {{appointment.employee.firstName}} {{appointment.employee.lastName}}  
-            <span *ngIf="appointment.employee.active" class="firedFucker">FIRED</span>
+            <span *ngIf="!appointment.employee.active" class="firedFucker">FIRED</span>
           </p>
           <div  >
             <img
@@ -55,16 +55,18 @@
         <td  class="td" >
          <h5> 
           <span class="firedFucker" *ngIf="!appointment.someService.active">SERVICE NOT AVAILBLE </span>
-          - {{appointment.someService.name}}</h5>   
+           {{appointment.someService.name}}</h5>   
         </td>
 
         <td class="td">{{appointment.localDateTime}}</td>
-        <td class="td">
+
+        <td  class="td">
           
-          <button type="button" class="button :hover" (click)="cancelAppointment(appointment.id)" >CANCEL          </button>
-          <button *ngIf="appointment.hasPast" class="button" (click)="setComplete(appointment.id, appointment)" >DONE</button>
+          <button type="button" class="button" [style.background-color]="!appointment.employee.active ? 'red' : '#343535'" (click)="cancelAppointment(appointment.id)" >CANCEL          </button>
+          <button *ngIf="appointment.hasPast" class="button" [routerLink]="['/appointments']" (click)="setComplete(appointment.id, appointment)" >DONE</button>
        
         </td>
+
        
       </tr> 
     
